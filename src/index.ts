@@ -8,7 +8,7 @@ import { checkDatabaseConnection } from "./config/database";
 dotenv.config();
 
 const app: Application = express();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || "3000", 10);
 
 // Middlewares
 app.use(cors());
@@ -46,7 +46,7 @@ const startServer = async () => {
       process.exit(1);
     }
 
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(`\n🚀 Servidor ejecutándose en http://localhost:${PORT}`);
       console.log(`📊 Health check: http://localhost:${PORT}/health`);
       console.log(`📅 API Events: http://localhost:${PORT}/api/events\n`);

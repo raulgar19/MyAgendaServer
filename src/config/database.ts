@@ -13,6 +13,9 @@ const poolConfig: PoolConfig = {
   max: parseInt(process.env.DB_POOL_MAX!),
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 export const pool = new Pool(poolConfig);
